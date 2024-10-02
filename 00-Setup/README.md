@@ -77,7 +77,8 @@ You will need add the following IAM policy binding to the account you'll be usin
 * **Service Account Admin** roles/iam.serviceAccountAdmin
 * **Service Account Key Admin** roles/iam.serviceAccountKeyAdmin
 * **Storage Admin** roles/storage.admin
-* **Logging Admin** logging.admin
+* **Logging Admin** roles/logging.admin
+* **compute Admin** roles/compute.admin
 ```
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/serviceusage.serviceUsageAdmin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="user:${GCP_ACCOUNT_EMAIL}" --role="roles/iam.serviceAccountAdmin"
@@ -108,6 +109,7 @@ gcloud iam service-accounts list --filter="EMAIL=${SERVICE_ACCOUNT}"
 Grant IAM roles to the Service Account
 * Project IAM Admin
 * Storage Admin
+* Compute Image User
 ```
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/resourcemanager.projectIamAdmin"
 gcloud projects add-iam-policy-binding ${PROJECT_ID} --member="serviceAccount:${SERVICE_ACCOUNT}" --role="roles/storage.admin"
